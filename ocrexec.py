@@ -18,7 +18,8 @@ def fix_python_code(code):
         if re.search('^(if|for|def)\s', line):
             indentation += 1
         elif re.match('^\s*$', line):
-            indentation -= 1     
+            if indentation > 0:
+                indentation -= 1
     result = result.replace('”', '"')
     result = result.replace('o', 'o')       
     return result
