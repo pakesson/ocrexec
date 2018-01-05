@@ -6,6 +6,7 @@ import argparse
 import os
 from guesslang import Guess
 import re
+import sys
 
 # Fix indentation and common OCR mistakes
 # This is just (barely) enough to handle the example 'helloworld.png' image
@@ -40,6 +41,7 @@ if __name__ == '__main__':
     language = Guess().language_name(text)
     if language != 'Python':
         print('Unknown programming language')
+        sys.exit()
 
     code = fix_python_code(text)
 
